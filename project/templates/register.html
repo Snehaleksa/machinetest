@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            
+        }
+
+        .registration-container {
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 20px 30px;
+            width: 600px;
+            
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"], input[type="date"], input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #FF6347;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        
+
+        
+    </style>
+</head>
+<body>
+    <div class="registration-container">
+        <h2>Create Employee</h2>
+        <form action="register" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-grid">
+                <div>
+                    <label for="">Firstname</label>
+                    <input type="text" name="firstname"  required>
+                </div>
+                <div>
+                    <label for="">lastname</label>
+                    <input type="text" name="lastname" required>
+                </div>
+                <div>
+                    <label for="">Email</label>
+                    <input type="text" name="email" required>
+                </div>
+                <div>
+                    <label for="">Department</label>
+                    <input type="text" name="department"required>
+                </div>
+                <div>
+                    <label for="address">Designation</label>
+                    <input type="text" name="designation" required>
+                </div>
+                <div>
+                    <label for="">Date</label>
+                    <input type="date" name="date"  required>
+                </div>
+                <div>
+                    <label for="">Salary</label>
+                    <input type="text" name="salary" required>
+                </div>
+                
+                <div>
+                    <label for="">Image</label>
+                    <input type="file" name="image"  >
+                </div>
+                <div class="create">
+                    <input type="submit" value="create">
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

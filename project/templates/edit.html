@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{% url 'edit' id=data.id %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="">Firstname</label>
+        <input type="text" name="firstname" value="{{data.firstname}}" required><br><br>
+        <label for="">Lastname</label>
+        <input type="text" name="lastname" value="{{data.lastname}}" required>
+        <label for="">Email</label>
+        <input type="text" name="email" value="{{data.email}}">
+        <label for="">Department</label>
+        <input type="text" name="department" value="{{data.department}}" required>
+        <label for="">Designation</label>
+        <input type="text" name="designation" value="{{data.designation}}" required>
+        <label for="">Date</label>
+        <input type="date" name="date"  value={{data.date}} required>
+        <label for="">Salary</label>
+        <input type="text" name="salary" value="{{data.salary}}" required>
+        <label for="">Image</label>
+        <input type="file" name="image" >
+        <input type="submit">
+
+    </form>
+</body>
+</html>

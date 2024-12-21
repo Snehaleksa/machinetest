@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            background-color: rgb(218, 243, 240);
+        }
+
+        .profile-card {
+            background: whitesmoke;
+            border-radius: 15px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            padding: 30px;
+            margin: 50px auto;
+            
+        }
+
+        .profile-card img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            border: 4px solid turquoise;
+            margin-bottom: 15px;
+        }
+
+        .profile-card h2 {
+            font-size: 26px;
+            font-weight: bold;
+            color: grey;
+            margin-bottom: 10px;
+        }
+
+        .profile-details {
+            margin-top: 20px;
+            text-align: left;
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: space-between;
+            gap: 20px; 
+        }
+
+        
+
+        .profile-details h4 {
+            font-size: 16px;
+            color: black;
+            margin-bottom: 5px;
+        }
+
+        .profile-details p {
+            font-size: 14px;
+            color: grey;
+            margin-bottom: 10px;
+        }
+
+        .edit-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: blue;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        
+        @media screen and (max-width: 768px) {
+            .profile-card {
+                padding: 20px;
+            }
+
+            .profile-card img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .profile-details {
+                flex-direction: column; 
+                gap: 10px;
+            }
+
+            .profile-details div {
+                text-align: center; 
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .profile-card {
+                padding: 15px;
+            }
+
+            .profile-card h2 {
+                font-size: 20px;
+            }
+
+            .profile-details h4, .profile-details p {
+                font-size: 14px;
+            }
+
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-card">
+        <img src="{{ data.image.url }}" alt="Profile Image">
+        <h2>{{ data.nfirstame }}</h2>
+         <div class="profile-details">
+            <div>
+                <h4>Lastname:</h4>
+                <p>{{ data.lastname }}</p>
+            
+                <h4>Department:</h4>
+                <p>{{ data.department }}</p>
+            </div>
+            <div>
+                <h4>Designation:</h4>
+                <p>{{ data.designation }}</p>
+            
+                <h4>Date:</h4>
+                <p>{{ data.date }}</p>
+            </div>
+            <div>
+                <h4>Salary:</h4>
+                <p>{{ data.salary}}</p>
+            
+                <h4>Email:</h4>
+                <p>{{data.email}}</p>
+            </div>
+            
+        </div>
+        
+        
+        
+    </div>
+
+</body>
+</html>
+
+</body>
+</html>
