@@ -13,8 +13,8 @@ def register(request):
       designation=request.POST['designation']
       date=request.POST['date']
       salary=request.POST['salary']
-      image=request.FILES['image']
-      image=request.POST['image']
+      image=request.FILES.get('image')
+      
       data=User.objects.create(firstname=firstname,lastname=lastname,email=email,department=department,designation=designation,date=date,salary=salary,image=image)
       data.save()
       return HttpResponse("success")

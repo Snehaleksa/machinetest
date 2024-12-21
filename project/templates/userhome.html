@@ -90,7 +90,21 @@
         .search-container{
             margin-right: 500px;
         }
+        .profilepic {
+            width: 180px;
+            height: 40px;
+            border-radius: 10px;
+            border: 1 px solid white;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: orange;
+            
+        }
         
+
 
         .nav-container nav a {
             color: black;
@@ -119,22 +133,23 @@
             padding-left: 35px;
             margin-left: 200px;
             background-position: right;
-}
-
- @media screen and (max-width: 768px) {
+        }
         
 
-        .nav-container {
+       @media screen and (max-width: 768px) {
+        
+
+          .nav-container {
             flex-direction: column; 
             align-items: center;
             padding: 20px 10px;
-        }
+          }
 
-        .nav-container nav {
+          .nav-container nav {
             flex-direction: column;
             gap: 10px; 
+          }
         }
-    }
 
     
         
@@ -145,7 +160,13 @@
 </head>
 <body>
     <div class="nav-container">
-        <img src="" alt="Logo" class="profile-pic">
+        <div class="search-container2">
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="text" name="search" placeholder="RI" class="profilepic">
+                
+            </form>
+        </div>
         <nav>
             
             <div class="search-container">
@@ -170,7 +191,7 @@
             {% if i.image %}
             <img class="img" src="{{ i.image.url }}" alt="Image of {{ i.firstname }}">
             {% else %}
-            <div class="firstname">{{ i.firstname }}</div>
+            <div class="firstname">{{ i.firstname|slice:1 }}{{ i.lastname|slice:1 }}</div>
             {% endif %}
 
             <h2>{{ i.firstname }} {{ i.lastname }}</h2>
@@ -182,7 +203,7 @@
             <div class="buttons">
               <a href="{% url 'edit' id=i.id %}"><img src="{% static 'img/profileeditlogo.jpg' %}" alt="" height="30px" width="30px"></a>
               
-              <a href="{% url 'profileview' id=i.id %}">profileview</a>
+            
               <a href="{% url 'delete' id=i.id %}"><img src="{% static 'img/delete.jpg' %}" alt="" height="23px" width="23px"></a>
             </div>  
         </div>
