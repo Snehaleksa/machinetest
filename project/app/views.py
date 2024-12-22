@@ -17,7 +17,7 @@ def register(request):
       
       data=User.objects.create(firstname=firstname,lastname=lastname,email=email,department=department,designation=designation,date=date,salary=salary,image=image)
       data.save()
-      return HttpResponse("success")
+      return redirect(userhome)
    else:
       return render(request,'register.html') 
 
