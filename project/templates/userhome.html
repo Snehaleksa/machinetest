@@ -210,17 +210,31 @@
 
             <h2>{{ i.firstname }} {{ i.lastname }}</h2>
             <p>{{ i.email }}</p>
-            <p>{{ i.department }}</p>
-            <p>{{ i.designation }}</p>
-            <p>{{ i.date }}</p>
-            <p>{{ i.salary }}</p>
             <div class="buttons">
-              <a href="{% url 'edit' id=i.id %}"><img src="{% static 'img/profileeditlogo.jpg' %}" alt="" height="30px" width="30px"></a>
-               
-               <a href=""><img src="{% static 'img/eye2.jpg' %}" alt="" height="25px" width="25px" style="border-radius: 50%;"></a>
-            
-              <a href="{% url 'delete' id=i.id %}"><img src="{% static 'img/delete.jpg' %}" alt="" height="23px" width="23px"></a>
+                <a href="{% url 'edit' id=i.id %}"><img src="{% static 'img/profileeditlogo.jpg' %}" alt="" height="25px" width="25px"></a>
+                 
+                 <a href=""><img src="{% static 'img/eye2.jpg' %}" alt="" height="20px" width="20px" style="border-radius: 50%;"></a>
+              
+                <a href="{% url 'delete' id=i.id %}"><img src="{% static 'img/delete.jpg' %}" alt="" height="20px" width="20px"></a>
+            </div> 
+
+            <div style="display: flex;flex-wrap: wrap;justify-content: space-between;margin-top: 10px;">
+              <div>
+                <h6>{{ i.department }}</h6>
+                 <p>Department</p>
+                 <h6>{{ i.designation }}</h6>
+               <p>Designation</p>
+              </div>
+              <div>
+                <h6>{{ i.date }}</h6>
+                <p>Date</p>
+                <h6>${{ i.salary }}</strong></h6>
+                <p>Salary</p>
+              </div> 
             </div>  
+              
+            
+             
         </div>
 
         {% endfor %}
