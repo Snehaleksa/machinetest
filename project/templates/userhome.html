@@ -16,6 +16,10 @@
         body{
             background-color: rgb(224, 226, 228);
         }
+        .buttons{
+            display: flex;
+            justify-content: space-around;
+        }
 
         .container {
             display: flex;
@@ -71,87 +75,97 @@
             margin-bottom: 15px;
         }
         .nav-container {
-            width: 100%;
-            
-            background-color: white;
-            padding: 15px 20px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            flex-wrap: wrap;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: white;
             border-bottom: 1px solid rgb(223, 219, 219);
+            flex-wrap: wrap; 
         }
 
-        .nav-container nav {
+        .search-container {
+            flex: 1;
+            display: flex;
+            justify-content: flex-start; 
+            margin-right: 20px; 
+        }
+
+        .search-container input {
+            width: 100%; 
+            max-width: 300px; 
+            padding: 10px 15px;
+            border: 1px solid rgb(201, 197, 197);
+            border-radius: 10px;
+            font-size: 14px;
+        }
+        .search-container2 p {
+            width: 100%; 
+            max-width: 300px; 
+            padding: 10px 15px;
+            border: 1px solid rgb(201, 197, 197);
+            border-radius: 10px;
+            font-size: 14px;
+            
+            
+        }
+        .search-container2{
+            width: 190px;
+        }
+        
+        nav {
             display: flex;
             align-items: center;
             gap: 15px;
+            flex-wrap: wrap; 
         }
-        .search-container{
-            margin-right: 500px;
-        }
-        .profilepic {
-            width: 180px;
-            height: 40px;
-            border-radius: 10px;
-            border: 1 px solid white;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            color: orange;
-            
-        }
-        
 
-
-        .nav-container nav a {
+        nav a {
             color: black;
             text-decoration: none;
             font-weight: bold;
             font-size: 14px;
         }
-        .buttons{
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
+
+        .plusicon {
+           display: flex;
+           align-items: center;
+           justify-content: end;
+           margin-left: auto; 
         }
-        .plusicon{
-            margin-left: 1300px;
-            
-        }
-        .search-container .search {
-            width: 200px;
-            padding: 10px 15px;
-            font-size: 14px;
-            border: 1px solid rgb(201, 197, 197);
-            border-radius: 10px;
-            background: url("{% static 'img/search.jpg' %}" ) ;
-            background-repeat: no-repeat;
-            background-size: 30px 30px; 
-            padding-left: 35px;
-            margin-left: 200px;
-            background-position: right;
-        }
-        
 
        @media screen and (max-width: 768px) {
-        
+           .nav-container {
+              flex-direction: column;
+              align-items: center; 
+            }
 
-          .nav-container {
-            flex-direction: column; 
-            align-items: center;
-            padding: 20px 10px;
-          }
+           .search-container {
+              margin-right: 0; 
+              margin-bottom: 10px; 
+            }
 
-          .nav-container nav {
-            flex-direction: column;
-            gap: 10px; 
-          }
+            nav {
+              flex-direction: column; 
+              gap: 10px;
+            }    
+
+            .plusicon {
+              margin-left: 0; 
+            }
         }
 
-    
+        @media screen and (max-width: 480px) {
+            .search-container input {
+              max-width: 100%; 
+            }
+
+            nav a {
+              font-size: 12px;
+            }
+        }
+
+        
         
     </style>
 
@@ -163,7 +177,7 @@
         <div class="search-container2">
             <form action="" method="post">
                 {% csrf_token %}
-                <input type="text" name="search" placeholder="RI" class="profilepic">
+                <p>RI</p>
                 
             </form>
         </div>
@@ -202,7 +216,8 @@
             <p>{{ i.salary }}</p>
             <div class="buttons">
               <a href="{% url 'edit' id=i.id %}"><img src="{% static 'img/profileeditlogo.jpg' %}" alt="" height="30px" width="30px"></a>
-              
+               
+               <a href=""><img src="{% static 'img/eye2.jpg' %}" alt="" height="25px" width="25px" style="border-radius: 50%;"></a>
             
               <a href="{% url 'delete' id=i.id %}"><img src="{% static 'img/delete.jpg' %}" alt="" height="23px" width="23px"></a>
             </div>  
